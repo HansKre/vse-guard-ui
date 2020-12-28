@@ -6,7 +6,6 @@ import DataCard from './DataCard';
 
 const Section = ({ section }) => {
 
-    // TODO: add spacing to the left side
     return (
         <>
             <Grid item xs={12}>

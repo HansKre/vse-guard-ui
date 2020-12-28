@@ -12,7 +12,6 @@ const pieChart = (chartDefinition) => {
                     <CartesianGrid strokeDasharray="3 3" />
                     <Pie data={chartDefinition.data.innerPie} dataKey="value" cx={200} cy={150} outerRadius={60} fill="#8884d8" />
                     <Pie data={chartDefinition.data.outerPie} dataKey="value" cx={200} cy={150} innerRadius={70} outerRadius={90} fill="#82ca9d" label />
-
                     <Tooltip />
                 </PieChart>
             </ResponsiveContainer>
