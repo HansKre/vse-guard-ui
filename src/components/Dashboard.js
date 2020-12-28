@@ -16,7 +16,7 @@ const Dashboard = () => {
     }, []);
 
     return (
-        <Grid item xs={12} container spacing={2}>
+        <Grid item xs={12} container spacing={2} justify='center'>
             {sections && sections.map(section => {
                 return (
                     <Section key={uuidv4()} section={section} />

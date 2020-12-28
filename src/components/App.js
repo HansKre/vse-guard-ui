@@ -24,7 +24,7 @@ const App = () => {
       <ThemeProvider theme={currentTheme} >
         {/* Paper-component is required for theming */}
         <Paper style={{ minHeight: "100vh" }} >
-          <Grid container spacing={2}>
+          <Grid container spacing={2} justify='center'>
             <Header />
             <Controls darkMode={darkMode} setDarkMode={setDarkMode} />
             <Dashboard />

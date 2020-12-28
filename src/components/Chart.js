@@ -5,6 +5,7 @@ import { AreaChart, Area } from 'recharts';
 
 const pieChart = (chartDefinition) => {
     return (
+        // TODO: width, height responsive
         <PieChart width={400} height={400}>
             <Pie data={chartDefinition.data.innerPie} dataKey="value" cx={200} cy={200} outerRadius={60} fill="#8884d8" />
             <Pie data={chartDefinition.data.outerPie} dataKey="value" cx={200} cy={200} innerRadius={70} outerRadius={90} fill="#82ca9d" label />
@@ -15,6 +16,7 @@ const pieChart = (chartDefinition) => {
 const barChart = (chartDefinition) => {
     return (
         <BarChart
+            // TODO: width, height responsive
             width={500}
             height={300}
             data={chartDefinition.data}
@@ -36,7 +38,8 @@ const barChart = (chartDefinition) => {
 const areaChart = (chartDefinition) => {
     return (
         <AreaChart
-            width={500}
+            // TODO: width, height responsive
+            width={400}
             height={400}
             data={chartDefinition.data}
             margin={{
