@@ -5,7 +5,7 @@ import Section from './Section';
 import fetchFrom from '../helpers/fetchFrom';
 import Config from '../config';
 
-const DashboardContainer = () => {
+const Dashboard = () => {
 
     const [sections, setSections] = useState(undefined);
 
@@ -26,4 +26,4 @@ const DashboardContainer = () => {
     )
 }
 
-export default DashboardContainer;
+export default Dashboard;

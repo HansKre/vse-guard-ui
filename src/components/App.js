@@ -6,7 +6,7 @@ import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import '../styles/App.css';
-import DashboardContainer from './DashboardContainer';
+import Dashboard from './Dashboard';
 import Controls from './Controls';
 import Footer from './Footer';
 
@@ -32,7 +32,7 @@ const App = () => {
               </Card>
             </Grid>
             <Controls darkMode={darkMode} setDarkMode={setDarkMode} />
-            <DashboardContainer />
+            <Dashboard />
             <Footer />
           </Grid>
         </Paper>
