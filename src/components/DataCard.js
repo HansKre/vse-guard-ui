@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
         // maxWidth: 345,
         '&:hover': {
-            background: '#7d857f',
+            outlineStyle: 'dotted',
+            outlineColor: '#7d857f'
         }
     },
     media: {
