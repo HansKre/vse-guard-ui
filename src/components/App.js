@@ -8,12 +8,13 @@ import Dashboard from './Dashboard';
 import Controls from './Controls';
 import Footer from './Footer';
 import Header from './Header';
+import createCustomTheme from '../styles/CustomTheme';
 
 const App = () => {
 
   const [darkMode, setDarkMode] = React.useState(true);
 
-  const currentTheme = createMuiTheme({
+  const simpleSwitchableTheme = createMuiTheme({
     palette: {
       type: darkMode ? 'dark' : 'light'
     }
@@ -21,7 +22,7 @@ const App = () => {
 
   return (
     <Container maxWidth="lg">
-      <ThemeProvider theme={currentTheme} >
+      <ThemeProvider theme={createCustomTheme(darkMode) || simpleSwitchableTheme} >
         {/* Paper-component is required for theming */}
         <Paper style={{ minHeight: "100vh" }} >
           <Grid container spacing={2} justify='center'>

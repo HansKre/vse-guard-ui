@@ -17,9 +17,9 @@ const Controls = ({ darkMode, setDarkMode }) => {
                         />
                     </Grid>
                     <Grid item xs={3} style={{ textAlign: "left" }}>
-                        <Button variant='contained' color='primary' onClick={() => alert('foo')} >Spring</Button>
-                        <Button variant='contained' color='primary'>Check</Button>
-                        <Button variant='contained' color='secondary'>Analyse</Button>
+                        <Button color='primary' onClick={() => alert('foo')} >Spring</Button>
+                        <Button color='primary'>Check</Button>
+                        <Button color='secondary'>Analyse</Button>
                     </Grid>
                 </Grid>
             </Paper>
