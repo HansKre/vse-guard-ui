@@ -4,13 +4,15 @@
   "description": "Mock of vse-guard backend",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "rest": "nodemon server-rest.js",
+    "gql": "nodemon server-gql.js"
   },
   "author": "hans.krebs@daimler.com",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

@@ -9,7 +9,7 @@ const Section = ({ section }) => {
     return (
         <>
             <Grid item xs={12}>
-                <Typography variant="h4">{section.title}</Typography>
+                <Typography variant='h4'>{section.title}</Typography>
             </Grid>
             {section.dataCards.map(dataCard => {
                 return (

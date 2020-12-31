@@ -14,14 +14,20 @@ git clone <repo-url> \
     && popd
 ```
 
-### Run mocked backend & Frontend
+### Run mocked GraphQL backend & Frontend
 
 ```
-pushd mocked-backend/ && (npm run start&) && popd && npm start
+pushd mocked-backend/ && (npm run gql&) && popd && npm start
 ```
 
 Runs mock-server for local requests as well as the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### Run mocked REST backend & Frontend
+
+```
+pushd mocked-backend/ && (npm run rest&) && popd && npm start
+```
 
 ## How it works
 
@@ -36,6 +42,18 @@ https://create-react-app.dev/docs/proxying-api-requests-in-development/
 ```
 
 This way, when you ```fetch('/api/todos')``` in development, the development server will recognize that it’s not a static asset, and will proxy your request to ```http://localhost:4000/api/todos``` as a fallback. The development server will only attempt to send requests without text/html in its Accept header to the proxy.
+
+### React with GraphQl
+> Tutorial
+https://www.freecodecamp.org/news/react-apollo-client-2020-tutorial/
+
+> Free GraphQL APIs
+http://apis.guru/graphql-apis/
+
+> Dependencies
+```
+npm i @apollo/react-hooks apollo-boost graphql
+```
 
 ## Production
 

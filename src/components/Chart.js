@@ -24,7 +24,7 @@ const barChart = (chartDefinition) => {
         <div style={{ width: '100%', height: 300 }}>
             <ResponsiveContainer>
                 <BarChart
-                    data={chartDefinition.data}
+                    data={chartDefinition.data.bars}
                     margin={{
                         top: 5, right: 30, left: 20, bottom: 5,
                     }}
@@ -47,7 +47,7 @@ const areaChart = (chartDefinition) => {
         <div style={{ width: '100%', height: 300 }}>
             <ResponsiveContainer>
                 <AreaChart
-                    data={chartDefinition.data}
+                    data={chartDefinition.data.areas}
                     margin={{
                         top: 10, right: 30, left: 0, bottom: 0,
                     }}
