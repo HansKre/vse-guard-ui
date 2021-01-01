@@ -12,15 +12,29 @@ import DarkTheme from '../styles/DarkTheme';
 import LightTheme from '../styles/LightTheme';
 import { ApolloProvider } from '@apollo/react-hooks';
 import graphQlClient from './GraphQlClient';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const App = () => {
 
-  const [darkMode, setDarkMode] = React.useState(true);
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const [darkMode, setDarkMode] = React.useState(undefined);
+
+  const theme = React.useMemo(
+    () => {
+      if (darkMode === undefined) {
+        setDarkMode(prefersDarkMode);
+        return prefersDarkMode ? DarkTheme : LightTheme;
+      } else {
+        return darkMode ? DarkTheme : LightTheme;
+      }
+    },
+    [prefersDarkMode, darkMode],
+  );
 
   return (
     <ApolloProvider client={graphQlClient}>
       <Container maxWidth="lg">
-        <ThemeProvider theme={darkMode ? DarkTheme : LightTheme} >
+        <ThemeProvider theme={theme} >
           {/* Paper-component is required for theming */}
           <Paper style={{ minHeight: "100vh" }} >
             <Grid container spacing={2} justify='center'>
