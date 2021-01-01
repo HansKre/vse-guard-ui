@@ -8,7 +8,8 @@ import Dashboard from './Dashboard';
 import Controls from './Controls';
 import Footer from './Footer';
 import Header from './Header';
-import createCustomTheme from '../styles/CustomTheme';
+import DarkTheme from '../styles/DarkTheme';
+import LightTheme from '../styles/LightTheme';
 import { ApolloProvider } from '@apollo/react-hooks';
 import graphQlClient from './GraphQlClient';
 
@@ -16,16 +17,10 @@ const App = () => {
 
   const [darkMode, setDarkMode] = React.useState(true);
 
-  const simpleSwitchableTheme = createMuiTheme({
-    palette: {
-      type: darkMode ? 'dark' : 'light'
-    }
-  });
-
   return (
     <ApolloProvider client={graphQlClient}>
       <Container maxWidth="lg">
-        <ThemeProvider theme={createCustomTheme(darkMode) || simpleSwitchableTheme} >
+        <ThemeProvider theme={darkMode ? DarkTheme : LightTheme} >
           {/* Paper-component is required for theming */}
           <Paper style={{ minHeight: "100vh" }} >
             <Grid container spacing={2} justify='center'>
