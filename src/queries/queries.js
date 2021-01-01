@@ -16,7 +16,7 @@ const Queries = {
   `,
 
   GET_WEATHER_FOR: gql`
-    query GetCityByName ($name: String!) {
+    query ($name: String!) {
       getCityByName(name: $name, config: { units: metric }) {
         name
         weather {
@@ -72,38 +72,36 @@ const Queries = {
 
   GET_APPS: gql`
     query {
-      getApps {
-        app {
-          desc
-          class
-          layer
-          hasnoswagger
-          environments {
-            env
-            server
-            host
+      apps {
+        desc
+        class
+        layer
+        hasnoswagger
+        environments {
+          env
+          server
+          host
+          path
+          checks {
+            action
+            link
+            href
+            authHref
+            description
+            state
             path
-            checks {
-              action
-              link
-              href
-              authHref
-              description
-              state
-              path
-              no
-              actionResult {
-                message
-              }
+            no
+            actionResult {
+              message
             }
           }
         }
       }
-    }
+    }  
   `,
 
   GET_ENV: gql`
-    query getEnv($app: String! $env: String!) {
+    query ($app: String! $env: String!) {
       env(app: $app, env: $env) {
         env
         server
