@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Dashboard = () => {
+
+    console.log('dashboard re-render');
+
     const classes = useStyles();
     const { loading, error, data } = useQuery(Queries.GET_APPS);
 
@@ -42,7 +45,7 @@ const Dashboard = () => {
     } else {
         return (
             <Grid item xs={12} container spacing={2} justify='center'>
-                {data && extractSections(data.apps).map(section => {
+                {data && data.apps && extractSections(data.apps).map(section => {
                     return (
                         <Section key={uuidv4()} section={section} apps={data.apps} />
                     )
