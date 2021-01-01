@@ -44,8 +44,9 @@ https://create-react-app.dev/docs/proxying-api-requests-in-development/
 This way, when you ```fetch('/api/todos')``` in development, the development server will recognize that it’s not a static asset, and will proxy your request to ```http://localhost:4000/api/todos``` as a fallback. The development server will only attempt to send requests without text/html in its Accept header to the proxy.
 
 ### React with GraphQl
-> Tutorial
+> Tutorials
 https://www.freecodecamp.org/news/react-apollo-client-2020-tutorial/
+https://www.smashingmagazine.com/2020/07/client-side-graphql-apollo-client-react-apps/
 
 > Free GraphQL APIs
 http://apis.guru/graphql-apis/
