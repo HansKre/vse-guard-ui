@@ -47,7 +47,11 @@ const Dashboard = () => {
             <Grid item xs={12} container spacing={2} justify='center'>
                 {data && data.apps && extractSections(data.apps).map(section => {
                     return (
-                        <Section key={uuidv4()} section={section} apps={data.apps} />
+                        <Section
+                            key={uuidv4()}
+                            section={section}
+                            apps={data.apps}
+                        />
                     )
                 })}
             </Grid>
@@ -55,4 +59,11 @@ const Dashboard = () => {
     }
 }
 
-export default Dashboard;
+export default React.memo(Dashboard, (prevProps, nextProps) => {
+    if (prevProps.setDetailsText === nextProps.setDetailsText) {
+        // true means props are 'equal', so props are equal and react does not have to re-render the component
+        return true;
+    } else {
+        return false;
+    }
+});

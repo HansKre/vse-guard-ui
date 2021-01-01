@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import AppsCard from './AppsCard';
 
-const Section = ({ section, apps }) => {
+const Section = React.memo(({ section, apps }) => {
 
     console.log('section re-render');
 
@@ -22,6 +22,8 @@ const Section = ({ section, apps }) => {
             })}
         </>
     )
-}
+}, (prevProps, nextProps) => {
+    return true;
+})
 
 export default Section;
