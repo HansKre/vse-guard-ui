@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import '../styles/App.css';
 import Dashboard from './Dashboard';
 import Controls from './Controls';
@@ -16,18 +16,19 @@ import DataProvider from './DataProvider';
 const App = () => {
 
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const [darkMode, setDarkMode] = React.useState(undefined);
+  const [darkMode, setDarkMode] = React.useState(false); // initial value is required for controlled components
 
+  // will run after the render is committed to the screen
+  React.useEffect(() => {
+    setDarkMode(prefersDarkMode);
+  }, [prefersDarkMode]);
+
+  // will memoize theme to be re-calculated only when dependencies change
   const theme = React.useMemo(
     () => {
-      if (darkMode === undefined) {
-        setDarkMode(prefersDarkMode);
-        return prefersDarkMode ? DarkTheme : LightTheme;
-      } else {
-        return darkMode ? DarkTheme : LightTheme;
-      }
+      return darkMode ? DarkTheme : LightTheme;
     },
-    [prefersDarkMode, darkMode],
+    [darkMode],
   );
 
   return (
