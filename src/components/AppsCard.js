@@ -5,9 +5,22 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { v4 as uuidv4 } from 'uuid';
 import DetailsHover from './DetailsHover';
+import { makeStyles } from '@material-ui/core/styles'
 
+const useStyles = makeStyles((theme) => ({
+    typo: {
+        '&:hover': {
+            backgroundColor: theme.palette.primary.main
+        }
+    }
+}));
+
+// time defined outside of class to avoid changing on re-render
 const time = (new Date()).toLocaleString();
+
 const AppsCard = React.memo(({ app }) => {
+
+    const classes = useStyles();
 
     console.log('apps re-render');
 
@@ -30,6 +43,7 @@ const AppsCard = React.memo(({ app }) => {
                                 <React.Fragment key={uuidv4()}>
                                     <Typography
                                         key={uuidv4()}
+                                        className={classes.typo}
                                         variant='body2'
                                         component='p'
                                         onMouseEnter={() => { setDetailsText(env.env) }}
