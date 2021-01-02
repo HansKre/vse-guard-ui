@@ -10,9 +10,8 @@ import Footer from './Footer';
 import Header from './Header';
 import DarkTheme from '../styles/DarkTheme';
 import LightTheme from '../styles/LightTheme';
-import { ApolloProvider } from '@apollo/react-hooks';
-import graphQlClient from './GraphQlClient';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import DataProvider from './DataProvider';
 
 const App = () => {
 
@@ -32,7 +31,7 @@ const App = () => {
   );
 
   return (
-    <ApolloProvider client={graphQlClient}>
+    <DataProvider>
       <Container maxWidth="lg">
         <ThemeProvider theme={theme} >
           {/* Paper-component is required for theming */}
@@ -46,7 +45,7 @@ const App = () => {
           </Paper>
         </ThemeProvider >
       </Container>
-    </ApolloProvider >
+    </DataProvider >
   )
 }
 
