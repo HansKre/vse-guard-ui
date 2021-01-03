@@ -12,12 +12,12 @@ const useStyles = makeStyles((theme) => ({
     typo: {
         '&:hover': {
             backgroundColor: theme.palette.primary.main,
-            cursor: 'default', // supress 'text' cursorc
+            cursor: 'default', // supress 'text' cursor
         }
     },
     typoClicked: {
         backgroundColor: theme.palette.primary.main,
-        cursor: 'default', // supress 'text' cursorc
+        cursor: 'default', // supress 'text' cursor
     }
 }));
 

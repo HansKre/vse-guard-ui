@@ -5,7 +5,6 @@ import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/core/styles';
 import '../styles/App.css';
 import Dashboard from './Dashboard';
-import Controls from './Controls';
 import Footer from './Footer';
 import Header from './Header';
 import DarkTheme from '../styles/DarkTheme';
@@ -35,11 +34,10 @@ const App = () => {
     <DataProvider>
       <Container maxWidth="lg">
         <ThemeProvider theme={theme} >
+          <Header darkMode={darkMode} setDarkMode={setDarkMode} />
           {/* Paper-component is required for theming */}
           <Paper style={{ minHeight: "100vh" }} >
             <Grid container spacing={2} justify='center'>
-              <Header />
-              <Controls darkMode={darkMode} setDarkMode={setDarkMode} />
               <Dashboard />
               <Footer />
             </Grid>
