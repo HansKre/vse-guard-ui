@@ -11,6 +11,8 @@ import DarkTheme from '../styles/DarkTheme';
 import LightTheme from '../styles/LightTheme';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import DataProvider from './DataProvider';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import ShowCase from './ShowCase';
 
 const App = () => {
 
@@ -32,18 +34,28 @@ const App = () => {
 
   return (
     <DataProvider>
-      <Container maxWidth="lg">
-        <ThemeProvider theme={theme} >
-          <Header darkMode={darkMode} setDarkMode={setDarkMode} />
-          {/* Paper-component is required for theming */}
-          <Paper style={{ minHeight: "100vh" }} >
-            <Grid container spacing={2} justify='center'>
-              <Dashboard />
-              <Footer />
-            </Grid>
-          </Paper>
-        </ThemeProvider >
-      </Container>
+      <ThemeProvider theme={theme} >
+        <BrowserRouter>
+          <Container maxWidth="lg">
+            <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+            {/* Paper-component is required for theming */}
+            <Paper style={{ minHeight: "100vh" }} >
+              <Grid container spacing={2} justify='center'>
+                {/* TODO: animate page transitions */}
+                <Switch>
+                  <Route exact path="/">
+                    <Dashboard />
+                  </Route>
+                  <Route path="/showcase">
+                    <ShowCase />
+                  </Route>
+                </Switch>
+                <Footer />
+              </Grid>
+            </Paper>
+          </Container>
+        </BrowserRouter>
+      </ThemeProvider >
     </DataProvider >
   )
 }

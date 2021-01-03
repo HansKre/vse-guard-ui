@@ -7,7 +7,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import { makeStyles } from '@material-ui/core/styles';
 import TheatersIcon from '@material-ui/icons/Theaters';
+import HomeIcon from '@material-ui/icons/Home';
 import IconButton from '@material-ui/core/IconButton';
+import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,11 +24,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Header = ({ darkMode, setDarkMode }) => {
+const Header = ({ darkMode, setDarkMode, history, location }) => {
 
     const classes = useStyles();
 
-    // navigate on click showcase
+    const navigate = (url) => {
+        history.push(url);
+    }
+
     // TODO: fixed position
     // TODO: dark bar on top
     // TODO: shrink on scroll
@@ -36,7 +41,8 @@ const Header = ({ darkMode, setDarkMode }) => {
                 <ToolBar>
                     <Typography variant='h4' className={classes.title}>VSE-Guard-UI</Typography>
                     <IconButton>
-                        <TheatersIcon color='secondary' />
+                        {location.pathname === '/' && <TheatersIcon color='secondary' onClick={() => navigate('/showcase')} />}
+                        {location.pathname === '/showcase' && <HomeIcon color='secondary' onClick={() => navigate('/')} />}
                     </IconButton>
                     <FormControlLabel
                         control={<Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />}
@@ -48,4 +54,4 @@ const Header = ({ darkMode, setDarkMode }) => {
     )
 }
 
-export default Header;
+export default withRouter(Header);
