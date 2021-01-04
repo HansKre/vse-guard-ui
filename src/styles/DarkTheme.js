@@ -24,7 +24,7 @@ const DarkTheme = createMuiTheme({
         // TODO: switch to fancy google font
         fontFamily: 'Comic Sans MS',
         body2: {
-            fontSize: '1.1rem'
+            // fontSize: '1.1rem'
         }
     },
     shape: {
