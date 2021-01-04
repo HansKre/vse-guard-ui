@@ -61,13 +61,22 @@ npm i @apollo/react-hooks apollo-boost graphql
 
 ## Production
 
-### `npm run build`
+### `npm run build` for production deployment
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
+
+### To test production build locally
+
+```
+npm run build-local
+npm install -g serve
+serve -s build
+# open in browser at: http://localhost:5000
+```
 
 ### `npm run eject`
 
