@@ -1,22 +1,13 @@
-/**
- * Serves GQL only
- */
+'use strict';
 
-const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
-const path = require('path');
 
-const data = require('./data/sections');
+const data = require('../data/sections');
 
-const app = express();
-const port = 4000;
+module.exports = function (app) {
 
-// mounts online /static/images/cards to local /public
-// https://expressjs.com/en/starter/static-files.html
-app.use('/static/images/cards', express.static('public'))
-
-const schema = buildSchema(`
+    const schema = buildSchema(`
   type Query {
     getSections: [Section]
   },
@@ -56,23 +47,21 @@ const schema = buildSchema(`
   }
 `);
 
-const getSections = () => {
-    return data;
-}
+    const getSections = () => {
+        return data;
+    }
 
-const resolver = {
-    getSections: getSections,
+    const resolver = {
+        getSections: getSections,
+    };
+
+    app.use(
+        '/graphql',
+        graphqlHTTP({
+            schema: schema,
+            rootValue: resolver,
+            graphiql: true,
+        }),
+    );
+
 };
-
-app.use(
-    '/graphql',
-    graphqlHTTP({
-        schema: schema,
-        rootValue: resolver,
-        graphiql: true,
-    }),
-);
-
-app.listen(port, () => {
-    console.log(`Graphiql available at http://localhost:${port}/graphql`)
-})

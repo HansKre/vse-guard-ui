@@ -32,6 +32,7 @@ const Dashboard = () => {
     }
 
     if (loading) {
+        console.log('loading');
         return (
             <Backdrop className={classes.backdrop} open={loading}>
                 <CircularProgress color="inherit" />

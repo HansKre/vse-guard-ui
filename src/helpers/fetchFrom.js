@@ -1,10 +1,10 @@
-const fetchFrom = (url, cb) => {
+const fetchFrom = (url, cb, onErr) => {
     fetch(url)
         .then(function (response) {
             if (response.status !== 200) {
-                console.log('Looks like there was a problem. Status Code: ' +
-                    response.status);
-                return;
+                const errString = 'Looks like there was a problem. Status Code: ' + response.status;
+                console.log(errString);
+                onErr(errString);
             } else {
                 response.json().then(function (jsonResponse) {
                     cb(jsonResponse);
@@ -13,6 +13,7 @@ const fetchFrom = (url, cb) => {
         })
         .catch(function (err) {
             console.log('Fetch Error', err);
+            onErr(err);
         });
 }
 

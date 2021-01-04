@@ -28,8 +28,14 @@ const Header = ({ darkMode, setDarkMode, history, location }) => {
 
     const classes = useStyles();
 
-    const navigate = (url) => {
-        history.push(url);
+    const navigate = () => {
+        let nextUrl;
+        if (location.pathname === '/') {
+            nextUrl = '/showcase';
+        } else if (location.pathname === '/showcase') {
+            nextUrl = '/'
+        }
+        history.push(nextUrl);
     }
 
     // TODO: fixed position
@@ -40,9 +46,10 @@ const Header = ({ darkMode, setDarkMode, history, location }) => {
             <AppBar position='static'>
                 <ToolBar>
                     <Typography variant='h4' className={classes.title}>VSE-Guard-UI</Typography>
-                    <IconButton>
-                        {location.pathname === '/' && <TheatersIcon color='secondary' onClick={() => navigate('/showcase')} />}
-                        {location.pathname === '/showcase' && <HomeIcon color='secondary' onClick={() => navigate('/')} />}
+                    {/* important: onClick is not supported for children of IconButton at Firefox browser */}
+                    <IconButton onClick={navigate}>
+                        {location.pathname === '/' && <TheatersIcon color='secondary' />}
+                        {location.pathname === '/showcase' && <HomeIcon color='secondary' />}
                     </IconButton>
                     <FormControlLabel
                         control={<Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />}
