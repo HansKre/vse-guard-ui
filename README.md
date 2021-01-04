@@ -14,16 +14,19 @@ git clone <repo-url> \
     && popd
 ```
 
-### Run mocked GraphQL backend & Frontend
+### Run mocked GraphQL & REST backend & Frontend
 
 ```
-pushd mocked-backend/ && (npm run gql&) && popd && npm start
+pushd mocked-backend/ && (npm run start&) && popd && npm start
 ```
 
-Runs mock-server for local requests as well as the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Run mocked GraphQL only backend & Frontend
 
-### Run mocked REST backend & Frontend
+```
+pushd mocked-backend/ && (npm run gqlt&) && popd && npm start
+```
+
+### Run mocked REST only backend & Frontend
 
 ```
 pushd mocked-backend/ && (npm run rest&) && popd && npm start
